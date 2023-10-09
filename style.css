@@ -45,8 +45,11 @@ img {
   width: 200px;
   height: 200px;
   border-radius: 2px;
-  object-fit: contain;
-  padding: 8px;
+  object-fit: fill;
+  /* padding: 8px; */
+  border-color: #00522E;
+  border-style: groove;
+  border-width: 1px;
 }
 
 .role {
@@ -128,12 +131,6 @@ a:hover {
 
 .link {
   font-size: 16px;
-}
-
-img {
-  /* box-shadow: 1px 1px 10px #A1CCD1; */
-  border-color: #00522E;
-  border-style: solid;
 }
 
 /* #plumcooks-logo {

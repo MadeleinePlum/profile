@@ -130,6 +130,12 @@ a:hover {
   font-size: 16px;
 }
 
+img {
+  /* box-shadow: 1px 1px 10px #A1CCD1; */
+  border-color: #00522E;
+  border-style: solid;
+}
+
 /* #plumcooks-logo {
   width: 40px;
   height: 40px;

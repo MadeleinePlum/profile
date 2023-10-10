@@ -42,14 +42,12 @@ p {
 }
 
 img {
-  width: 200px;
-  height: 173px;
+  width: 100px;
+  height: 100px;
   border-radius: 2px;
   object-fit: fill;
   /* padding: 8px; */
-  border-color: #00522E;
-  border-style: groove;
-  border-width: 1px;
+
 }
 
 .role {
@@ -76,6 +74,17 @@ img {
   padding: 8px;
   display: flex;
   align-items: center;
+}
+
+.protext {
+  margin-left: 32px;
+}
+
+.Gluten {
+  font-family: "Gluten", sans-serif;
+  color: rgb(216, 59, 85);
+  margin-left: 32px;
+  font-size: 40px;
 }
 
 .skills {
@@ -117,6 +126,14 @@ a {
   font-family: "Darker Grotesque", sans-serif ;
   transition: 0.4s;
   font-size: 18px;
+  border: #A1CCD1;
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+  padding-top: 1px;
+  border-radius: 2px;
+  margin-top: 16px;
+  display: inline-block;
 }
 
 a:hover {
@@ -124,9 +141,13 @@ a:hover {
   background-color: #A1CCD1;
   transition: 0.4s;
   padding: 5px;
-  padding-top: 3px;
-  border-radius: 10px;
+  padding-top: 1px;
   transition-timing-function: ease-out;
+  color: #00522E;
+}
+
+.social {
+  border-style: none;
 }
 
 .link {

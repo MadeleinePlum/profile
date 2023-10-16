@@ -47,7 +47,6 @@ img {
   border-radius: 2px;
   object-fit: fill;
   /* padding: 8px; */
-
 }
 
 .role {
@@ -179,7 +178,7 @@ a:hover {
   border-radius: 2px;
 }
 
-.logo {
+#logo {
   width: 30px;
   height: 30px;
   display: flex;

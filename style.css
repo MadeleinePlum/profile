@@ -179,6 +179,14 @@ a:hover {
   border-radius: 2px;
 }
 
+.logo {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+  /* margin-bottom: 24px; */
+}
+
 @media (max-width: 960px) {
   .container {
     width: 700px;

@@ -13,18 +13,18 @@ colorIndexBG = (colorIndexBG + 1) % backgroundColors.length;
 const colorText = titleColors[colorIndex];
 const colorBG = backgroundColors[colorIndexBG];
 
-const links = document.getElementsByClassName('link');
-  for (let h = 0; h < links.length; h++) {
-  links[h].addEventListener('mouseover', function () {
-    this.style.color = colorBG;
-    this.style.backgroundColor = colorText;
-    });
+// const links = document.getElementsByClassName('link');
+//   for (let h = 0; h < links.length; h++) {
+//   links[h].addEventListener('mouseover', function () {
+//     this.style.color = colorBG;
+//     this.style.backgroundColor = colorText;
+//     });
 
-  links[h].addEventListener('mouseout', function() {
-    this.style.color = '';
-    this.style.backgroundColor = '';
-    })
-  }
+//   links[h].addEventListener('mouseout', function() {
+//     this.style.color = '';
+//     this.style.backgroundColor = '';
+//     })
+//   }
 
 for (let j = 0; j < btnList.length; j++) {
   btnList[j].addEventListener('click', function onClick(event) {

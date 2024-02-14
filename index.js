@@ -94,55 +94,54 @@ function applyColorPair(colorPair) {
       titleList[i].style.color = colorPair.text;
     }
 
-    const cardBorder = document.getElementsByClassName('card');
+  const cardBorder = document.getElementsByClassName('card');
     for (let c = 0; c < cardBorder.length; c++) {
       cardBorder[c].style.borderColor = colorPair.text;
     }
 
-    const introBackground = document.getElementsByClassName('role')[0];
-    introBackground.style.backgroundColor = colorPair.text;
+  const introBackground = document.getElementsByClassName('role')[0];
+  introBackground.style.backgroundColor = colorPair.text;
 
-    const buttonbgList = document.getElementsByClassName('buttonbg');
+  const buttonbgList = document.getElementsByClassName('buttonbg');
     for (let i = 0; i < buttonbgList.length; i++) {
       buttonbgList[i].style.backgroundColor = colorPair.background;
     }
 
-    const webTitle = document.getElementsByClassName('web-d');
+  const webTitle = document.getElementsByClassName('web-d');
     for (let t = 0; t < webTitle.length; t++) {
       webTitle[t].style.color = colorPair.background;
     }
 
-  const links = document.getElementsByClassName('link');
-  for (let h = 0; h < links.length; h++) {
-  links[h].addEventListener('mouseover', function () {
-    this.style.color = colorPair.background;
-    this.style.backgroundColor = colorPair.text;
-    });
+  // const colorShuffle = document.getElementsByClassName('shuffle')[0];
+  // colorShuffle.style.color = colorPair.text;
 
-  links[h].addEventListener('mouseout', function() {
-    this.style.color = colorPair.text;
-    this.style.backgroundColor = colorPair.background;
-    })
+  const colorShuffle = document.getElementsByClassName('fas');
+  for (let f = 0; f < colorShuffle.length; f++) {
+    colorShuffle[f].style.color = colorPair.text;
   }
 
-  const colorShuffle = document.getElementsByClassName('fa-shuffle')[0];
-  colorShuffle.style.color = colorPair.text;
+  const links = document.getElementsByClassName('link');
+    for (let h = 0; h < links.length; h++) {
+      links[h].addEventListener('mouseover', function () {
+        this.style.color = colorPair.background;
+        this.style.backgroundColor = colorPair.text;
+      });
+
+      links[h].addEventListener('mouseout', function() {
+        this.style.color = colorPair.text;
+        this.style.backgroundColor = '';
+      })
+    }
 }
 
 
-const colorShuffleButton = document.getElementsByClassName('fa-shuffle')[0];
-colorShuffleButton.addEventListener('click', function() {
-  const nextColorPair = getNextColorPair();
-  applyColorPair(nextColorPair);
-
-  const linkColor = document.getElementsByClassName('link');
-  for (let l = 0; l < cardBorder.length; l++) {
-    linkColor[l].style.background = colorPairs.background;
-  }
-});
-
-
-
+const colorShuffleButton = document.getElementsByClassName('btn');
+ for (let j = 0; j < colorShuffleButton.length; j++) {
+   colorShuffleButton[j].addEventListener('click', function() {
+     const nextColorPair = getNextColorPair();
+     applyColorPair(nextColorPair);
+   });
+ }
 
 
 

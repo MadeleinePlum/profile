@@ -3,42 +3,38 @@ let colorIndex = 0;
 let colorIndexBG = 0;
 let colorIndexBorder = 0;
 
-const titleColors = ["#E1E5F2", "#FF0000", "#B6D8F6", "#385C38", "#F18C55", "#FFFFFF"]
+const titleColors = ["#E1E5F2", "#FF0000", "#77B6EA", "#385C38", "#F18C55", "#FFFFFF"]
 const backgroundColors = ["#2c574d", "#010633", "#2F30AC", "#F9DF74", "#690061", "#292929"]
 
-colorIndex = (colorIndex + 1) % titleColors.length;
-colorIndexBG = (colorIndexBG + 1) % backgroundColors.length;
+let colorText = titleColors[colorIndex];
+let colorBG = backgroundColors[colorIndexBG];
 
+const links = document.getElementsByClassName('link');
+  for (let h = 0; h < links.length; h++) {
+  links[h].addEventListener('mouseover', function () {
+    this.style.color = colorBG;
+    this.style.backgroundColor = colorText;
+    });
 
-const colorText = titleColors[colorIndex];
-const colorBG = backgroundColors[colorIndexBG];
-
-// const links = document.getElementsByClassName('link');
-//   for (let h = 0; h < links.length; h++) {
-//   links[h].addEventListener('mouseover', function () {
-//     this.style.color = colorBG;
-//     this.style.backgroundColor = colorText;
-//     });
-
-//   links[h].addEventListener('mouseout', function() {
-//     this.style.color = '';
-//     this.style.backgroundColor = '';
-//     })
-//   }
+  links[h].addEventListener('mouseout', function() {
+    this.style.color = colorText;
+    this.style.backgroundColor = '';
+    })
+  }
 
 for (let j = 0; j < btnList.length; j++) {
   btnList[j].addEventListener('click', function onClick(event) {
 
 
-    const titleColors = ["#E1E5F2", "#FF0000", "#B6D8F6", "#385C38", "#F18C55", "#FFFFFF"]
-    const backgroundColors = ["#2c574d", "#010633", "#2F30AC", "#F9DF74", "#690061", "#292929"]
+    const titleColors = ["#E1E5F2", "#FF0000", "#B6D8F6", "#F9DF74", "#F18C55", "#FFFFFF"]
+    const backgroundColors = ["#2c574d", "#010633", "#2F30AC", "#385C38", "#690061", "#292929"]
 
     colorIndex = (colorIndex + 1) % titleColors.length;
     colorIndexBG = (colorIndexBG + 1) % backgroundColors.length;
 
 
-    const colorText = titleColors[colorIndex];
-    const colorBG = backgroundColors[colorIndexBG];
+    colorText = titleColors[colorIndex];
+    colorBG = backgroundColors[colorIndexBG];
 
     const titleList = document.getElementsByClassName("title");
     for (let i = 0; i < titleList.length; i++) {
@@ -107,14 +103,26 @@ function applyColorPair(colorPair) {
       webTitle[t].style.color = colorPair.background;
     }
 
-    const colorShuffle = document.getElementsByClassName('fa-shuffle')[0];
-    colorShuffle.style.color = colorPair.text;
+  const links = document.getElementsByClassName('link');
+  for (let h = 0; h < links.length; h++) {
+  links[h].addEventListener('mouseover', function () {
+    this.style.color = colorPair.background;
+    this.style.backgroundColor = colorPair.text;
+    });
+
+  links[h].addEventListener('mouseout', function() {
+    this.style.color = colorPair.text;
+    this.style.backgroundColor = colorPair.background;
+    })
+  }
 }
 
 window.addEventListener('load', function() {
   const randomColorPair = getRandomColorPair();
   applyColorPair(randomColorPair);
 });
+
+
 
 
 // const titleColors = ["#E1E5F2", "#FF0000", "#B6D8F6", "#385C38", "#F18C55", "#FFFFFF"]

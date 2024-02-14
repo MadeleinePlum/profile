@@ -1,6 +1,8 @@
 const colorSelect = document.getElementsByClassName('color1')[0];
+
 colorSelect.addEventListener('click', function onClick(event) {
   document.body.style.backgroundColor = '#2c574d';
+
   const titleList = document.getElementsByClassName("title");
   for (let i = 0; i < titleList.length; i++) {
     titleList[i].style.color = "#E1E5F2";

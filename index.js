@@ -1,69 +1,70 @@
-const btnList = document.getElementsByClassName('btn');
-let colorIndex = 0;
-let colorIndexBG = 0;
-let colorIndexBorder = 0;
+// const btnList = document.getElementsByClassName('btn');
+// let colorIndex = 0;
+// let colorIndexBG = 0;
+// let colorIndexBorder = 0;
 
-const titleColors = ["#E1E5F2", "#FF0000", "#77B6EA", "#385C38", "#F18C55", "#FFFFFF"]
-const backgroundColors = ["#2c574d", "#010633", "#2F30AC", "#F9DF74", "#690061", "#292929"]
-
-let colorText = titleColors[colorIndex];
-let colorBG = backgroundColors[colorIndexBG];
-
-const links = document.getElementsByClassName('link');
-  for (let h = 0; h < links.length; h++) {
-  links[h].addEventListener('mouseover', function () {
-    this.style.color = colorBG;
-    this.style.backgroundColor = colorText;
-    });
-
-  links[h].addEventListener('mouseout', function() {
-    this.style.color = colorText;
-    this.style.backgroundColor = '';
-    })
-  }
-
-for (let j = 0; j < btnList.length; j++) {
-  btnList[j].addEventListener('click', function onClick(event) {
+// for (let j = 0; j < btnList.length; j++) {
+//   btnList[j].addEventListener('click', function onClick(event) {
 
 
-    const titleColors = ["#E1E5F2", "#FF0000", "#B6D8F6", "#F9DF74", "#F18C55", "#FFFFFF"]
-    const backgroundColors = ["#2c574d", "#010633", "#2F30AC", "#385C38", "#690061", "#292929"]
+//     const titleColors = ["#E1E5F2", "#FF0000", "#B6D8F6", "#F9DF74", "#F18C55", "#FFFFFF"]
+//     const backgroundColors = ["#2c574d", "#010633", "#2F30AC", "#385C38", "#690061", "#292929"]
 
-    colorIndex = (colorIndex + 1) % titleColors.length;
-    colorIndexBG = (colorIndexBG + 1) % backgroundColors.length;
+//     colorIndex = (colorIndex + 1) % titleColors.length;
+//     colorIndexBG = (colorIndexBG + 1) % backgroundColors.length;
 
 
-    colorText = titleColors[colorIndex];
-    colorBG = backgroundColors[colorIndexBG];
+//     colorText = titleColors[colorIndex];
+//     colorBG = backgroundColors[colorIndexBG];
 
-    const titleList = document.getElementsByClassName("title");
-    for (let i = 0; i < titleList.length; i++) {
-      titleList[i].style.color = colorText;
-    }
+//     const titleList = document.getElementsByClassName("title");
+//     for (let i = 0; i < titleList.length; i++) {
+//       titleList[i].style.color = colorText;
+//     }
 
-    const buttonbgList = document.getElementsByClassName('buttonbg');
-    for (let i = 0; i < buttonbgList.length; i++) {
-      buttonbgList[i].style.backgroundColor = colorBG;
-    }
+//     const buttonbgList = document.getElementsByClassName('buttonbg');
+//     for (let i = 0; i < buttonbgList.length; i++) {
+//       buttonbgList[i].style.backgroundColor = colorBG;
+//     }
 
-    const webTitle = document.getElementsByClassName('web-d');
-    for (let t = 0; t < webTitle.length; t++) {
-      webTitle[t].style.color = colorBG;
-    }
+//     const webTitle = document.getElementsByClassName('web-d');
+//     for (let t = 0; t < webTitle.length; t++) {
+//       webTitle[t].style.color = colorBG;
+//     }
 
-    const cardBorder = document.getElementsByClassName('card');
-    for (let c = 0; c < cardBorder.length; c++) {
-      cardBorder[c].style.borderColor = colorText;
-    }
+//     const cardBorder = document.getElementsByClassName('card');
+//     for (let c = 0; c < cardBorder.length; c++) {
+//       cardBorder[c].style.borderColor = colorText;
+//     }
 
-    const introBackground = document.getElementsByClassName('role')[0];
-    introBackground.style.backgroundColor = colorText;
+//     const introBackground = document.getElementsByClassName('role')[0];
+//     introBackground.style.backgroundColor = colorText;
 
-    const colorShuffle = document.getElementsByClassName('fa-shuffle')[0];
-    colorShuffle.style.color = colorText;
+//     const colorShuffle = document.getElementsByClassName('fa-shuffle')[0];
+//     colorShuffle.style.color = colorText;
 
-  });
-}
+//   });
+// }
+
+
+// const titleColors = ["#E1E5F2", "#FF0000", "#77B6EA", "#F9DF74", "#F18C55", "#FFFFFF"]
+// const backgroundColors = ["#2c574d", "#010633", "#2F30AC", "#385C38", "#690061", "#292929"]
+
+// let colorText = titleColors[colorIndex];
+// let colorBG = backgroundColors[colorIndexBG];
+
+// const links = document.getElementsByClassName('link');
+//   for (let h = 0; h < links.length; h++) {
+//   links[h].addEventListener('mouseover', function () {
+//     this.style.color = colorBG;
+//     this.style.backgroundColor = colorText;
+//     });
+
+//   links[h].addEventListener('mouseout', function() {
+//     this.style.color = colorText;
+//     this.style.backgroundColor = colorBG;
+//     })
+//   }
 
 const colorPairs = [
   { background: "#2c574d", text: "#E1E5F2"},
@@ -74,9 +75,17 @@ const colorPairs = [
   { background: "#292929", text: "#FFFFFF"}
 ];
 
-function getRandomColorPair() {
-  return colorPairs[Math.floor(Math.random() * colorPairs.length)];
+let currentColorIndex = 0;
+
+function getNextColorPair() {
+  currentColorIndex = (currentColorIndex + 1) % colorPairs.length;
+  return colorPairs[currentColorIndex]
 }
+
+window.addEventListener('load', function() {
+  const randomColorPair = colorPairs[Math.floor(Math.random() * colorPairs.length)];
+  applyColorPair(randomColorPair);
+});
 
 function applyColorPair(colorPair) {
   document.body.style.backgroundColor = colorPair.background;
@@ -115,12 +124,24 @@ function applyColorPair(colorPair) {
     this.style.backgroundColor = colorPair.background;
     })
   }
+
+  const colorShuffle = document.getElementsByClassName('fa-shuffle')[0];
+  colorShuffle.style.color = colorPair.text;
 }
 
-window.addEventListener('load', function() {
-  const randomColorPair = getRandomColorPair();
-  applyColorPair(randomColorPair);
+
+const colorShuffleButton = document.getElementsByClassName('fa-shuffle')[0];
+colorShuffleButton.addEventListener('click', function() {
+  const nextColorPair = getNextColorPair();
+  applyColorPair(nextColorPair);
+
+  const linkColor = document.getElementsByClassName('link');
+  for (let l = 0; l < cardBorder.length; l++) {
+    linkColor[l].style.background = colorPairs.background;
+  }
 });
+
+
 
 
 
